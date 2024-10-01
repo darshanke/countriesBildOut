@@ -12,7 +12,11 @@ function App() {
       const res = await axios.get(`https://xcountries-backend.azurewebsites.net/all`);
       setlist(res.data);
     }catch(e){
-      console.log(e.response.data);  
+      if(e.response.status){
+        setlist([]);
+        console.log(e.response.data);
+      }
+      
     }
   }
   useEffect(()=>{
