@@ -3,7 +3,7 @@ import React from "react";
 
 const CountryCard = ({ countyData }) => {
   if (!countyData || countyData.length === 0) {
-    return <Box>Item not loaded yet</Box>;
+    return <Box>item not lodded yet</Box>;
   }
 
   return (

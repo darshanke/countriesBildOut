@@ -11,6 +11,8 @@ function App() {
     try {
       const res = await axios.get(`https://xcountries-backend.azurewebsites.net/all`);
       setList(res.data);
+      return res.data;
+  
     } catch (e) {
       console.error('Error fetching data:', e.message);
       setList([]);
@@ -18,14 +20,15 @@ function App() {
   };
 
   useEffect(() => {
-    countyData();
+    const data =  countyData();
+   
   }, []);
 
   return (
     <div className="App">
-      <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "16px" }}>
+      {list.length>0?<Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "16px" }}>
         <CountryCard countyData={list} />
-      </Box>
+      </Box>:null}
     </div>
   );
 }
