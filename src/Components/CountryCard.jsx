@@ -11,7 +11,7 @@ const CountryCard = ({ countyData }) => {
             <img
               src={item.flag}
               alt={item.name}
-              style={{ width: '100%', height: '80%', objectFit: 'cover' }} 
+              style={{ width: '150px', height: '150px', objectFit: 'cover' }} 
             />
             <Typography sx={{padding : '1rem'}}ariant="body2" align="center">
               {item.name}

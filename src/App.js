@@ -12,10 +12,10 @@ function App() {
       const res = await axios.get(`https://xcountries-backend.azurewebsites.net/all`);
       setlist(res.data);
     }catch(e){
-     
+      console.error('Error fetching data:', e.message);
        if (e.response) {
         
-        console.log(e.response.data);
+        console.error('Error fetching data:', e.message);
        
       } else if (e.request) {
       
