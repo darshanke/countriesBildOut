@@ -1,25 +1,52 @@
-import { Card, Grid, Typography ,Box} from '@mui/material';
-import React from 'react';
+import { Card, Typography, Box } from "@mui/material";
+import React from "react";
 
 const CountryCard = ({ countyData }) => {
-  if(!countyData) return <Box>Item not loaded yet</Box>
+  if (!countyData || countyData.length === 0) {
+    return <Box>Item not loaded yet</Box>;
+  }
+
   return (
-    <Grid container spacing={3}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        gap: "16px",
+      }}
+    >
       {countyData.map((item, index) => (
-        <Grid item  key={index}>
-          <Card sx={{ padding: '1rem', width: '200px', height: '200px' }}> 
+        <Card
+          key={index}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            width: "200px",
+            padding: '1rem',
+          }}
+        >
+          <div
+            style={{
+              height: "150px",
+              width: "150px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <img
               src={item.flag}
               alt={item.name}
-              style={{ width: '150px', height: '150px', objectFit: 'cover' }} 
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
-            <Typography sx={{padding : '1rem'}}ariant="body2" align="center">
-              {item.name}
-            </Typography>
-          </Card>
-        </Grid>
+          </div>
+          <Typography variant="body2" align="center" sx={{ marginTop: '8px' }}>
+            {item.name}
+          </Typography>
+        </Card>
       ))}
-    </Grid>
+    </Box>
   );
 };
 

@@ -1,44 +1,30 @@
-
 import './App.css';
-import { Box, Card } from '@mui/material';
+import { Box } from '@mui/material';
 import CountryCard from './Components/CountryCard';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [list,setlist] = useState([]);
-  const countyData =async()=>{
-    try{
-      const res = await axios.get(`https://xcountries-backend.azurewebsites.net/all`);
-      setlist(res.data);
-    }catch(e){
-      console.error('Error fetching data:', e.message);
-       if (e.response) {
-        
-        console.error('Error fetching data:', e.message);
-       
-      } else if (e.request) {
-      
-        console.log(e.request);
-       
-      } else {
-       
-        console.log('Error', e.message);
-        
-      }
+  const [list, setList] = useState([]);
 
-      
-      setlist([]);
-      
+  const countyData = async () => {
+    try {
+      const res = await axios.get(`https://xcountries-backend.azurewebsites.net/all`);
+      setList(res.data);
+    } catch (e) {
+      console.error('Error fetching data:', e.message);
+      setList([]);
     }
-  }
-  useEffect(()=>{
+  };
+
+  useEffect(() => {
     countyData();
-  },[])
+  }, []);
+
   return (
-    <div className="App"  sx={{display: "flex",  flexWrap: "wrap"}}>
-      <Box>
-        <CountryCard countyData={list}/>
+    <div className="App">
+      <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "16px" }}>
+        <CountryCard countyData={list} />
       </Box>
     </div>
   );
