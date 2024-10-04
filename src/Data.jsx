@@ -1,4 +1,4 @@
-export const Data =[
+export const Data = [
   { name: "Afghanistan", flag: "https://flagcdn.com/w320/af.png", abbr: "af" },
   { name: "Albania", flag: "https://flagcdn.com/w320/al.png", abbr: "al" },
   { name: "Algeria", flag: "https://flagcdn.com/w320/dz.png", abbr: "dz" },

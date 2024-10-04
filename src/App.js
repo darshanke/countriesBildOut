@@ -20,15 +20,15 @@ function App() {
   };
 
   useEffect(() => {
-    const data =  countyData();
+   countyData();
    
   }, []);
 
   return (
     <div className="App">
       {list.length>0?<Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "16px" }}>
-        <CountryCard countyData={list} />
-      </Box>:null}
+        <CountryCard countryData={list} />
+      </Box>:<p>no data avaliable</p>}
     </div>
   );
 }
