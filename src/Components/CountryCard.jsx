@@ -1,18 +1,19 @@
-import { Card, Grid, Typography } from '@mui/material';
+import { Card, Grid, Typography ,Box} from '@mui/material';
 import React from 'react';
 
 const CountryCard = ({ countyData }) => {
+  if(!countyData) return <Box>Item not loaded yet</Box>
   return (
     <Grid container spacing={3}>
       {countyData.map((item, index) => (
-        <Grid item xs={12 / 7} key={index}>
-          <Card sx={{ padding: '1rem', width: '150px', height: '150px' }}> {/* Set equal width and height */}
+        <Grid item  key={index}>
+          <Card sx={{ padding: '1rem', width: '200px', height: '200px' }}> 
             <img
               src={item.flag}
               alt={item.name}
-              style={{ width: '100%', height: '70%', objectFit: 'cover' }} // Ensure the image fits well
+              style={{ width: '100%', height: '80%', objectFit: 'cover' }} 
             />
-            <Typography variant="body2" align="center">
+            <Typography sx={{padding : '1rem'}}ariant="body2" align="center">
               {item.name}
             </Typography>
           </Card>
